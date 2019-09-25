@@ -1,8 +1,31 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
 @{
 	Layout = null;
+		string logoImage = Model.Value<IPublishedContent>("logoImage").Url;
+
 }
+<!DOCTYPE html>
+<html>
+<head>
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700&display=swap" rel="stylesheet">
+<title>Marian Zoicas Web Developer</title>
+<link href="~/css/layout.css" rel="Stylesheet" type="text/css" />
+<link href="~/css/navBar.css" rel="Stylesheet" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
 
-@* the fun starts here *@
+<body>
+		<div class="header">
+		<div class="logo-image">
+	   <a href="/"><img src="@logoImage"></a>  
+	</div>
+	<div class="navbar">
+			@Umbraco.RenderMacro("NavBar")
+	</div>
+	</div>
+	@RenderBody()
 
-@RenderBody()
+</body>
+
+</html>
+                        
